@@ -4,15 +4,16 @@ import grabUsername from "@/actions/grabUsername"
 import RightIcon from "@/components/icons/RightIcon";
 import { useState } from "react";
 import { redirect } from "next/navigation";
+import SubmitButton from "../buttons/SubmitButton";
 
 export default function UsernameForm({ desiredUsername }) {
-  const [taken,setTaken] = useState(false);
-  
+  const [taken, setTaken] = useState(false);
+
   async function handleSubmit(formData) {
     const result = await grabUsername(formData);
     setTaken(result === false);
     if (result) {
-      redirect('/account/'+formData.get('username'));
+      redirect('/account/' + formData.get('username'));
     }
   }
 
@@ -36,12 +37,10 @@ export default function UsernameForm({ desiredUsername }) {
             This user name is taken
           </div>
         )}
-        <button
-          type="submit"
-          className="bg-blue-500 text-white py-2 px-4 mx-auto w-full flex gap-2 items-center justify-center">
+        <SubmitButton>
           <span>Claim your username</span>
           <RightIcon />
-        </button>
+        </SubmitButton>
       </div>
     </form>
   )

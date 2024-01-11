@@ -1,7 +1,7 @@
 'use client';
 import { signIn } from "next-auth/react";
-import { redirect } from "next/navigation"
-import { useEffect, useRouter } from "react";
+import { redirect, useRouter } from "next/navigation"
+import { useEffect } from "react";
 
 export default function HeroForm({ user }) {
   const router = useRouter();
