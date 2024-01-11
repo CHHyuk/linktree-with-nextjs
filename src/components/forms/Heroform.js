@@ -1,15 +1,17 @@
 'use client';
 import { signIn } from "next-auth/react";
 import { redirect } from "next/navigation"
-import { useEffect } from "react";
+import { useEffect, useRouter } from "react";
 
-export default function HeroForm() {
+export default function HeroForm({ user }) {
+  const router = useRouter();
+
   useEffect(() => {
-    if('localStorage' in window && window.localStorage.getItem('desiredUsername')
+    if ('localStorage' in window && window.localStorage.getItem('desiredUsername')
     ) {
       const username = window.localStorage.getItem('desiredUsername');
       window.localStorage.removeItem('desiredUsername')
-      redirect('/account?desiredUsername=' + username)
+      redirect('/account?desiredUsername='+username)
     }
   }, [])
 
@@ -19,8 +21,12 @@ export default function HeroForm() {
     const input = form.querySelector('input');
     const username = input.value
     if (username.length > 0) {
-      window.localStorage.setItem('desiredUsername',username);
-      await signIn('google');
+      if (user) {
+        router.push('/account?desiredUsername='+username);
+      } else {
+        window.localStorage.setItem('desiredUsername', username);
+        await signIn('google');
+      }
     }
   }
 
