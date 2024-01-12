@@ -1,7 +1,6 @@
 import HeroForm from "@/components/forms/Heroform";
 import { getServerSession } from "next-auth";
-import { SessionProvider } from "next-auth/react";
-import { authOptions } from "./api/auth/[...nextauth]/route";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 
 
 export default async function Home() {
