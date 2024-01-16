@@ -8,10 +8,10 @@ export default function LoginPage() {
           Sign In
         </h1>
         <p className="text-center mb-6 text-gray-500">
-          Sign in to your accont using one of the methods below
+          Sign in to your account using one of the methods below
         </p>
-        <LoginWithGoogle/>
+        <LoginWithGoogle />
       </div>
     </div>
-  )
+  );
 }
