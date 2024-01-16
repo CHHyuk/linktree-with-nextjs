@@ -18,6 +18,8 @@ export default async function AnalyticsPage() {
   }
   const page = await Page.findOne({ owner: session.user.email });
 
+
+
   const groupedViews = await Event.aggregate([
     {
       $match: {
@@ -48,14 +50,21 @@ export default async function AnalyticsPage() {
     type: 'click',
   });
 
+  const defaultGroupedViews = [{ _id: formatISO9075(new Date()), count: 0 }];
+
+  const chartData = groupedViews.length > 0 ? groupedViews.map(o => ({
+    'date': o._id,
+    'views': o.count,
+  })) : defaultGroupedViews.map(o => ({
+    'date': o._id,
+    'views': o.count,
+  }));
+
   return (
     <div>
       <SectionBox>
         <h2 className="text-xl mb-6 text-center">Views</h2>
-        <Chart data={groupedViews.map(o => ({
-          'date': o._id,
-          'views': o.count,
-        }))} />
+        <Chart data={chartData} />
       </SectionBox>
       <SectionBox>
         <h2 className="text-xl mb-6 text-center">Clicks</h2>
