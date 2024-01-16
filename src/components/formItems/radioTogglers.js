@@ -11,7 +11,7 @@ export default function RadioTogglers({ options, defaultValue, onChange }) {
             onClick={ev => onChange(ev.target.value)}
             defaultChecked={defaultValue === option.value}
             value={option.value} />
-          <div>
+          <div className="hover:brightness-90">
             <FontAwesomeIcon icon={option.icon} />
             <span>{option.label}</span>
           </div>

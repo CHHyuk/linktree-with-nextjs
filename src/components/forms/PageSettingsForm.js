@@ -55,7 +55,7 @@ export default function PageSettingsForm({ page, user }) {
                 onChange={val => setBgType(val)}
               />
               {bgType === 'color' && (
-                <div className="bg-gray-200 shadow text-gray-700 p-2 mt-2">
+                <div className="bg-gray-200 shadow text-gray-700 p-2 mt-2 hover:brightness-90">
                   <div className="flex gap-2 justify-center">
                     <span>Background color:</span>
                     <input
@@ -67,7 +67,7 @@ export default function PageSettingsForm({ page, user }) {
                 </div>
               )}
               {bgType === 'image' && (
-                <div className="flex justify-center">
+                <div className="flex justify-center hover:brightness-90">
                   <label
                     className="bg-white shadow px-4 py-2 mt-2 flex gap-2"
                   >
@@ -98,7 +98,7 @@ export default function PageSettingsForm({ page, user }) {
               </div>
               <label
                 htmlFor="avatarIn"
-                className="absolute bottom-0 -right-2 bg-white p-2 rounded-full shadow shadow-black/50 aspect-square flex items-center cursor-pointer">
+                className="absolute bottom-0 -right-2 bg-white p-2 rounded-full shadow shadow-black/50 aspect-square flex items-center cursor-pointer hover:brightness-90">
                 <FontAwesomeIcon size={'xl'} icon={faCloudArrowUp} />
               </label>
               <input onChange={handleAvatarImageChange} id="avatarIn" type="file" className="hidden" />

@@ -12,14 +12,14 @@ export default async function Header() {
     <header className="bg-white border-b py-4">
       <div className="max-w-4xl flex justify-between mx-auto px-6">
         <div className="flex items-center gap-6">
-          <Link href={'/'} className="flex items-center gap-2 text-blue-500">
+          <Link href={'/'} className="flex items-center gap-2 text-blue-500 hover:brightness-90">
             <FontAwesomeIcon icon={faLink} className="text-blue-500" />
             <span className="font-bold">LinkList</span>
           </Link>
           <nav className="flex items-center gap-4 text-slate-500 text-sm">
-            <Link href={'/'}>About</Link>
-            <Link href={'/'}>Pricing</Link>
-            <Link href={'/'}>Contact</Link>
+            <Link href={'/'} className="hover:text-slate-700">About</Link>
+            <Link href={'/'} className="hover:text-slate-700">Pricing</Link>
+            <Link href={'/'} className="hover:text-slate-700">Contact</Link>
           </nav>
         </div>
         <nav className="flex items-center gap-4 text-sm text-slate-500">

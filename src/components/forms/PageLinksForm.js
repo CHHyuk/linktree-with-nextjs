@@ -63,7 +63,7 @@ export default function PageLinksForm({ page, user }) {
         <button
           onClick={addNewLink}
           type="button"
-          className="text-blue-500 text-lg flex gap-2 items-center cursor-pointer">
+          className="text-blue-500 text-lg flex gap-2 items-center cursor-pointer hover:brightness-90">
           <FontAwesomeIcon className="bg-blue-500 text-white p-1 rounded-full aspect-square" icon={faPlus} />
           <span>Add new</span>
         </button>
@@ -72,7 +72,7 @@ export default function PageLinksForm({ page, user }) {
             handle={'.handle'}
             list={links} setList={setLinks}>
             {links.map(l => (
-              <div key={l.key} className="mt-8 md:flex gap-6 items-center">
+              <div key={l.key} className="mt-8 md:flex gap-6 items-center ">
                 <div className="handle">
                   <FontAwesomeIcon
                     className="text-gray-500 mr-2 cursor-ns-resize"
@@ -131,7 +131,7 @@ export default function PageLinksForm({ page, user }) {
           </ReactSortable>
         </div>
         <div className="border-t pt-4 mt-4">
-          <SubmitButton className="max-w-xs mx-auto">
+          <SubmitButton className="max-w-xs mx-auto hover:brightness-90">
             <FontAwesomeIcon icon={faSave} />
             <span>Save</span>
           </SubmitButton>

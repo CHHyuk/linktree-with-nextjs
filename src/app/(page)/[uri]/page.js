@@ -83,20 +83,20 @@ export default async function UserPage({ params }) {
       <div className="flex gap-2 justify-center mt-4 pb-4">
         {Object.keys(page.buttons).map(buttonKey => (
           <Link key={buttonKey} href={buttonLink(buttonKey, page.buttons[buttonKey])}
-            className="rounded-full bg-white text-blue-950 p-2 flex items-center justify-center">
+            className="rounded-full bg-white text-blue-950 p-2 flex items-center justify-center hover:brightness-90">
             <FontAwesomeIcon className="w-5 h-5" icon={buttonsIcons[buttonKey]} />
           </Link>
         ))}
       </div>
-      <div className="max-w-2xl mx-auto grid md:grid-cols-2 gap-6 p-4 px-8">
+      <div className="max-w-2xl mx-auto grid md:grid-cols-2 gap-6 p-4 px-8 ">
         {page.links.map(link => (
           <Link
             key={link.url}
             target="_blank"
             ping={process.env.URL + 'api/click?url=' + btoa(link.url) + '&page=' + page.uri}
-            className="bg-indigo-800 p-2 block flex"
+            className="bg-indigo-800 p-2 block flex hover:brightness-90"
             href={link.url}>
-            <div className="relative -left-4 overflow-hidden w-16">
+            <div className="relative -left-4 overflow-hidden w-16 ">
               <div className="w-16 h-16 bg-blue-700 aspect-square relative flex items-center justify-center aspect-square">
                 {link.icon && (
                   <Image

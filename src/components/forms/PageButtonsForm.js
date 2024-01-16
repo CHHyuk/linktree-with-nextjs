@@ -73,7 +73,7 @@ export default function PageButtonsForm({ user, page }) {
               <div className="w-56 flex h-full text-gray-700 p-2 gap-2 items-center">
                 <FontAwesomeIcon
                   icon={faGripLines}
-                  className="cursor-pointer text-gray-400 handle p-2" />
+                  className="cursor-pointer text-gray-400 handle p-2 " />
                 <FontAwesomeIcon icon={b.icon} />
                 <span>{upperFirst(b.label)}:</span>
               </div>
