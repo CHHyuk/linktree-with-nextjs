@@ -16,6 +16,7 @@ import mongoose from "mongoose";
 import { btoa } from "next/dist/compiled/@edge-runtime/primitives";
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export const buttonsIcons = {
   email: faEnvelope,
@@ -44,8 +45,12 @@ export default async function UserPage({ params }) {
   const uri = params.uri;
   mongoose.connect(process.env.MONGO_URI);
   const page = await Page.findOne({ uri });
+  if (!page) {
+    redirect('/')
+  }
   const user = await User.findOne({ email: page.owner });
   await Event.create({ uri: uri, page: uri, type: 'view' });
+
   return (
     <div className="bg-blue-950 text-white min-h-screen">
       <div

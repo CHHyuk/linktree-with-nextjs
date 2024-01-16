@@ -17,11 +17,10 @@ export default async function AccountPage({ searchParams }) {
   }
   mongoose.connect(process.env.MONGO_URI);
   const page = await Page.findOne({ owner: session?.user?.email });
-  const leanPage = cloneDeep(page.toJSON());
-  leanPage._id = leanPage._id.toString();
+
   if (page) {
-
-
+    const leanPage = cloneDeep(page.toJSON());
+    leanPage._id = leanPage._id.toString();
     return (
       <>
         <PageSettingsForm page={leanPage} user={session.user} />
@@ -29,11 +28,11 @@ export default async function AccountPage({ searchParams }) {
         <PageLinksForm page={leanPage} user={session.user} />
       </>
     );
+  } else {
+    return (
+      <div>
+        <UsernameForm desiredUsername={desiredUsername} />
+      </div>
+    );
   }
-
-  return (
-    <div>
-      <UsernameForm desiredUsername={desiredUsername} />
-    </div>
-  );
 }
